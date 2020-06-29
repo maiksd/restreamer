@@ -89,7 +89,7 @@ RUN mkdir -p /dist && cd /dist && \
     tar -xvz -f "v${NGINXRTMP_VERSION}.tar.gz" && \
     sed -i"" -e '/case ESCAPE:/i /* fall through */' nginx-rtmp-module-${NGINXRTMP_VERSION}/ngx_rtmp_eval.c && \
     cd nginx-${NGINX_VERSION} && \
-    ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_v2_module --add-module=/dist/nginx-rtmp-module-${NGINXRTMP_VERSION} && \
+    ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_v2_module --with-http_stub_status_module --add-module=/dist/nginx-rtmp-module-${NGINXRTMP_VERSION} && \
     make -j$(nproc) && \
     make install
 
